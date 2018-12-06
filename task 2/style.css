@@ -1,32 +1,66 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
-#menu{
- max-width: 100%; /* ограничение длины панели */
- margin: 0 auto; /* навигационная панель по центру страницы */
- text-align: center;
- background: #FECCC2;
+.menu *{
+ padding: 0;
+ margin: 0;
 }
 
-#menu li{
- display:inline-block;
- text-align: center;
+.menu > ul{
+ display: flex;
+ justify-content: center;
 }
 
-#menu a{
- display: block;
- padding: 5px 15px;
- color: white;
- font-size:200%;
- text-decoration: none; /*убирает подчеркивание ссылки*/
+.menu ul{
+	list-style: none;
 }
 
-#menu li a:hover{
-    background: white;
-    color: #FECCC2;
-    transition: all 0.7s ease;
-    font-weight: bolder;
+.menu ul li a{
+	display: block;
+	background: #CCC2FE;
+	padding: 15px 40px 15px 40px;
+	font-size: 190%;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	transition: 0.7s ease; 
+	font-weight: bolder;
+	border: 5px solid #CEDFFE; 
 }
 
+.menu > ul li{
+	position: relative;
+}
+.menu li a:hover{
+	background-color: white;
+	color: #dbd4fe;
+	transition: 0.7s ease; 
+}
+
+.menu li ul{
+	position: absolute;
+	min-width: 150px;
+	display: none;
+}
+
+.menu li > ul li{
+	border-top: 1px dotted white;
+}
+
+.menu li > ul li a{
+	padding: 10px;
+	text-transform: none;
+	background-color: #dbd4fe;
+}
+
+.menu li > ul li ul{
+	position: absolute;
+	right: -150px;
+	top: 0;
+}
+
+.menu li:hover > ul{
+	display: block;
+}
 
 body {
   width: 100%;
@@ -74,4 +108,19 @@ body {
 #author{
 	text-align: right;
 	color: white;
+}
+
+@media print{
+    .main{
+        visibility: hidden;
+    }
+    
+    nav{
+        visibility: hidden;
+    }
+    
+    .center-column p{
+        visibility: visible;
+    }
+
 }
