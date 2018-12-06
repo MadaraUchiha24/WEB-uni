@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+#menu{
+ max-width: 100%; /* ограничение длины панели */
+ margin: 0 auto; /* навигационная панель по центру страницы */
+ text-align: center;
+ background: #FECCC2;
+}
+
+#menu li{
+ display:inline-block;
+ text-align: center;
+}
+
+#menu a{
+ display: block;
+ padding: 5px 15px;
+ color: white;
+ font-size:200%;
+ text-decoration: none; /*убирает подчеркивание ссылки*/
+}
+
+#menu li a:hover{
+    background: white;
+    color: #FECCC2;
+    transition: all 0.7s ease;
+    font-weight: bolder;
+}
+
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #CEDFFE;
+  font-family: 'Amatic SC';
+}
+
+.left-column {
+  margin-left: 5%;
+  width: 20%;
+  float: left;
+  min-height: 90%;
+  padding: 10px;
+}
+
+.center-column {
+  margin: 1%;
+  width: 50%;
+  min-height: 90%;
+  float: left;
+  font-size: 150%;
+  text-align: left;
+}
+
+.right-column{
+  width: 20%;
+  min-height: 90%;
+  float: left;
+}
+
+.image{
+	border: 5px solid white;
+}
+
+.ad_pic{
+	border: 3px solid white;
+	opacity: 0.2;
+}
+.ad_pic:hover{
+    opacity: 1;
+    border: 7px solid 	white;
+    transition: all 0.7s ease;
+}
+#author{
+	text-align: right;
+	color: white;
+}
