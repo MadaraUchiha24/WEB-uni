@@ -116,80 +116,83 @@
 	</div>
 </div>
 
-<div class="col-md-3">
-	<table class="table">
-		<thead>
-			<tr class="active">
-				<th>formule</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="success">
-				<td>
-					<div class="container">
-						<math xmlns="http://www.w3.org/1998/Math/MathML">
-			                <munder><mi>lim</mi><mrow><mi>x</mi><mo>&#x2192;</mo><mn>0</mn></mrow></munder>
-			                <mfrac>
-			                	<mrow>
-			                		<mi>sin</mi>
-			                		<mfenced><mi>x</mi></mfenced>
-			                	</mrow>
-			                	<mi>x</mi>
-			                </mfrac>
-			                <mo>=</mo>
-			                <mn>1</mn>
-			            </math>
-					</div>
-				</td>
-			</tr>
-			<tr class="warning">
-				<td>
-					<div class="container">
-						<math xmlns="http://www.w3.org/1998/Math/MathML">
-			                <mi>x</mi>
-			                <mo>=</mo>
-			                <mfrac>
-			                	<mrow>
-			                		<mo>-</mo>
-			                		<mi>b</mi>
-			                		<mo>&#xB1;</mo>
-			                		<msqrt>
-			                			<msup><mi>b</mi><mn>2</mn></msup>
-			                			<mo>-</mo>
-			                			<mn>4</mn>
-			                			<mi>a</mi>
-			                			<mi>c</mi>
-			                		</msqrt>
-			            		</mrow>
-			                	<mrow><mn>2</mn><mi>a</mi></mrow>
-			            	</mfrac>
-			            </math>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>	
-</div>	
+<div class="col-md-2">
+	<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+	<mo>&int;</mo>
+	<mi>f</mi>
+	<mfenced separators=' '>
+		<mi>x</mi>
+	</mfenced>
+	<mo>&sdot;</mo>
+	<mi>d</mi><mi>x</mi>
+</div>
+<div class="col-md-2">
+	<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'>
+  <munderover>
+    <mo>&sum;</mo>
+    <mrow>
+        <mi>i</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+    </mrow>
+    <mi>&infin;</mi>
+  </munderover>
+  <mi>sin</mi>
+  <mfenced separators=' '>
+	<mi>i</mi>
+	<mi>x</mi>
+  </mfenced>    
+
+</div>
+<div class="col-md-2">
+	<math xmlns = "http://www.w3.org/1998/Math/MathML">
+    
+	     <mfrac>
+	        <mi> a </mi>
+	        <mi> b </mi>
+	     </mfrac>
+	</math>
+</div>
+
+<div class="col-md-2">
+	<math>
+      <msqrt>
+        <mn>2</mn>
+      </msqrt>
+    </math>
+</div>
+
+<div class="col-md-2">
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mstyle displaystyle="true">
+		<munder>
+			<mi>lim</mi>
+			<mrow>
+				<mi>n</mi>
+				<mo>&rarr;</mo>
+				<mo>&infin;</mo>
+			</mrow>
+		</munder>
+	</mstyle>
+	<msub>
+		<mi>p</mi>
+		<mi>n</mi>
+	</msub>
+</mrow>
+</math>
 </div>
 
 
-
-<script>
-    window.MathJax = {
-        MathML: {
-            extensions: ["mml3.js", "content-mathml.js"]
-        }
-    };
-</script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
 
 
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 </body>
 </html>
