@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Main</title>
+	
+	<script type="text/javascript">
+		function area(form){
+			var a = Number(form.bottom.value),
+				b = Number(form.top.value),
+			    h = Number(form.height.value),
+			    s = (h/2);
+			    s = s*(a+b);
+			console.log(s);
+		}
+		function summa(form) {
+			var x = form.x.value,
+			    sum = 0;
+			for (var i = 1; i <21; i++) {
+				sum = sum + x/i; 
+			}
+			console.log(sum);
+		}
+		function outArr(m, n){
+			document.write("<table border=3  cellpadding=10>");
+	        for (i=0; i<n; i++)
+	        {
+	            document.write("<tr>")
+	                for (j=0; j<n; j++)
+	                {document.write("<td>"+String(m[i][j])+"</td>")}
+	            document.write("</tr>")
+	        }
+	    	document.write("</table>");
+		}
+		function getRandomInt(min, max){
+			return(Math.floor(Math.random() * (max - min + 1)) + min);
+		}
+		function getArray(n, min, max){
+			var m = [];
+			for (let i = 0; i < n; i++) {
+				m[i] = [];
+				for (let j = 0; j < n; j++) {
+					m[i][j] = getRandomInt(min, max);	
+				}
+			}
+			return m;
+		}
+		function getResultArray(form){
+			var min = Number(form.min.value),
+				max = Number(form.max.value),
+				len = Number(form.n.value),
+				ar = [],
+				newA = [];
+			ar = getArray(len, min, max);
+			newA = getArray(len, 0, 0);
+			outArr(ar, len);
+			for (var i = 0; i < len; i++) {
+				if ((i % 2) == 0) {
+					for (let j = 0; j < len; j++)
+						newA[i][j] = ar[j][i]; 
+				}
+				else{
+					let buf = 0;
+					for (let j = len-1; j >= 0; j--){
+						newA[i][buf] = ar[j][i];
+						buf++;	
+					}
+				}
+			}
+			outArr(newA, len);
+		}
+		function swap_mas(){
+			var a = [];
+			a = getArray(8, -10, 10);
+			console.log(a, 8);
+			var b = [];
+			for (let i = 0; i < 8; i++) {
+				b[i] = [];
+				for (let j = 0; j < 8; j++) {
+					b[i][j] = a[i][j];	
+				}
+			}
+			var kmax = 0;
+			var ind;
+			for (let i = 0; i < 8; i++){
+				var k = 0;
+				for (let j = 0; j < 8; j++) {
+					if (a[j][i] >= 0){
+						k++;
+					}
+				}
+				if (k >= kmax){
+					kmax = k;
+					ind = i;
+				}
+			}
+			console.log(ind);
+			for (let i = 0; i < 8; i++) {
+				let buf = b[i][ind];
+				b[i][ind] = b[i][i];
+				b[i][i] = buf;
+			}
+			console.log(b);
+
+		}
+
+
+	</script>
+</head>
+<body>
+	<div style="padding: 20px; background-color: #B7F5FE">
+		<form method="post" name="trap" onsubmit="area(this)">
+			<label>Основание 1</label>
+			<input type="text" name="bottom" id="bottom">
+			<label>Основание 2</label>
+			<input type="text" name="top" id="top">
+			<label>Высота</label>
+			<input type="text" name="height" id="height">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	<div style="padding: 20px; background-color: #B7FEEB">
+		<form method="post" name="sum" onsubmit="summa(this)">
+			<label>X=</label>
+			<input type="text" name="x" id="x">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+
+	<div style="padding: 20px; background-color: #AA111C">
+		<button onclick="swap_mas()">push me!</button>
+	</div>
+
+	<div style="padding: 30px; background-color: #B7FEEB">
+		<form method="post" name="maxmin" id="maxmin" onsubmit="getResultArray(this)">
+			<label>input min</label>
+			<input type="text" name="min" id="min">
+			<label>input max</label>
+			<input type="text" name="max" id="max">
+			<label>input array size</label>
+			<input type="text" name="n" id="n">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+
+</body>
+</html>
