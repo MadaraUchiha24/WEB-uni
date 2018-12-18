@@ -4,22 +4,6 @@
 	<title>Main</title>
 	
 	<script type="text/javascript">
-		function area(form){
-			var a = Number(form.bottom.value),
-				b = Number(form.top.value),
-			    h = Number(form.height.value),
-			    s = (h/2);
-			    s = s*(a+b);
-			console.log(s);
-		}
-		function summa(form) {
-			var x = form.x.value,
-			    sum = 0;
-			for (var i = 1; i <21; i++) {
-				sum = sum + x/i; 
-			}
-			console.log(sum);
-		}
 		function outArr(m, n){
 			document.write("<table border=3  cellpadding=10>");
 	        for (i=0; i<n; i++)
@@ -31,10 +15,30 @@
 	        }
 	    	document.write("</table>");
 		}
+
+		function area(form){
+			var a = Number(form.bottom.value),
+				b = Number(form.top.value),
+			    h = Number(form.height.value),
+			    s = (h/2);
+			    s = s*(a+b);
+			console.log(s);
+		}
+
+		function summa(form) {
+			var x = form.x.value,
+			    sum = 0;
+			for (var i = 1; i <21; i++) {
+				sum = sum + x/i; 
+			}
+			console.log(sum);
+		}
+		
 		function getRandomInt(min, max){
 			return(Math.floor(Math.random() * (max - min + 1)) + min);
 		}
-		function getArray(n, min, max){
+
+		function createAr(n, min, max){
 			var m = [];
 			for (let i = 0; i < n; i++) {
 				m[i] = [];
@@ -44,33 +48,10 @@
 			}
 			return m;
 		}
-		function getResultArray(form){
-			var min = Number(form.min.value),
-				max = Number(form.max.value),
-				len = Number(form.n.value),
-				ar = [],
-				newA = [];
-			ar = getArray(len, min, max);
-			newA = getArray(len, 0, 0);
-			outArr(ar, len);
-			for (var i = 0; i < len; i++) {
-				if ((i % 2) == 0) {
-					for (let j = 0; j < len; j++)
-						newA[i][j] = ar[j][i]; 
-				}
-				else{
-					let buf = 0;
-					for (let j = len-1; j >= 0; j--){
-						newA[i][buf] = ar[j][i];
-						buf++;	
-					}
-				}
-			}
-			outArr(newA, len);
-		}
+
 		function swap_mas(){
 			var a = [];
-			a = getArray(8, -10, 10);
+			a = createAr(8, -10, 10);
 			console.log(a, 8);
 			var b = [];
 			for (let i = 0; i < 8; i++) {
@@ -100,10 +81,42 @@
 				b[i][i] = buf;
 			}
 			console.log(b);
-
 		}
 
+		function getArray(n, min, max){
+                var array = [];
+                for (let i = 0; i < n; i++)
+                    array.push(getRandomInt(min, max));
+                return array;
+            }
 
+		function getResultArray(form){
+ 				var min = Number(form.min.value),
+					max = Number(form.max.value),
+					len = Number(form.n.value),
+					ar = [];
+                ar = getArray(len*len, min, max);
+                console.log(ar);
+                ar.sort(function(a,b){return a-b});
+                console.log(ar);
+                var m = [], ind = len*len-1;
+                m = createAr(len, 0, 0);
+                for (var i = 0; i < len; i++) {
+					if ((i % 2) == 0) {
+						for (let j = 0; j < len; j++){
+							m[j][i] = ar[ind];
+							ind--; 
+						}
+					}
+					else{
+						for (let j = len-1; j >= 0; j--){
+							m[j][i] = ar[ind];
+							ind--;
+						}
+					}
+				}
+               outArr(m, len);
+            }
 	</script>
 </head>
 <body>
