@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <script type="text/javascript" src="jquery.js"></script>
+  </head>
+  <body>
+    <script>
+      var fauna = [
+  			{
+  				name :'Animals',
+          chil : [
+            {
+              name :'Mammal',
+              chil : [
+                {
+                  name :'Cows'
+                },
+                {
+                  name :'Donkeys'
+                },
+                {
+                  name :'Dogs'
+                },
+                {
+                  name :'Tigers'
+                }
+              ]
+            },
+            {
+              name :'Other',
+              chil : [
+                {
+                  name :'Snakes'
+                },
+                {
+                  name :'Birds'
+                },
+                {
+                  name :'Lizards'
+                }
+              ]
+            }
+          ]
+  			},
+        {
+          name :'Fish',
+          chil : [
+            {
+              name : 'Aquarium',
+              chil : [
+                {
+                  name :'Angelfish'
+                },
+                {
+                  name :'Guppy'
+                }
+              ]
+            },
+            {
+              name : 'Sea',
+              chil : [
+                {
+                  name :'Sea Trout'
+                }
+              ]
+            }
+          ]
+        }
+  		];
+      function createList(array){
+        var html='<ul>';
+        $.each(array, function(k, item){
+            html+='<li>'+item.name;
+            if(item.chil){
+                html+=createList(item.chil);
+            }
+            html+='</li>';
+        });
+         html+='</ul>';
+        return html;
+      }
+      $('body').html( createList(fauna))
+
+      $("li").click(function(event){
+  			event.stopPropagation()
+  			$(this).children("ul").slideToggle(200)
+  		})
+
+      $("li").each(function() {
+  			var a = $(this).clone().children("ul").remove().end()
+  			console.log("Name: " + a.text())
+  			console.log("Children: " + $(this).find("li").length)
+  		})
+    </script>
+  </body>
+</html>
