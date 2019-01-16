@@ -1,0 +1,76 @@
+body{
+	font-family: 'Open Sans',sans-serif;
+	background-color: black;
+}
+#container{
+	width: 1000px;
+	height: 550px;
+	background-color: black;
+	margin: 20px auto;
+}
+#calculator{
+	width: 330px;
+	height: 600px;
+	background-color: #D3D3D3;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+#result{
+	height: 120px;
+}
+#history{
+	text-align: right;
+	height: 20px;
+	margin: 0 20px;
+	padding-top: 20px;
+	font-size: 15px;
+	color: #919191;
+}
+#current{
+	text-align: right;
+	height: 60px;
+	margin: 10px 20px;
+	font-size: 30px;
+}
+#keyboard{
+	height: 400px;
+	padding-left: 45px;
+	padding-right: 40px;
+	padding-top: 20px;
+}
+.operator, .number, .empty{
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	float: left;
+	border-radius: 50%;
+	border-width: 0;
+	font-weight: bold;
+	font-size: 15px;
+	transition: 0.7s ease;
+}
+button:not([class='empty']):hover{
+	background-color: #C0C0C0;
+}
+.str{
+	background-color: #7FFFD4;
+}
+.engineer{
+	background-color: #9370DB;
+}
+.number{
+	background-color: #eaedef;
+}
+.empty{
+	background-color: #D3D3D3;
+}
+.number, .operator{
+	cursor: pointer;
+}
+.operator:active, .number:active{
+	font-size: 1px;
+	color: #C0C0C0;
+}
+.operator:focus, .number:focus, .empty:focus{
+	outline: 0;
+}
